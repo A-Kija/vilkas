@@ -1,60 +1,66 @@
 import React from 'react';
 
-import ChangeColorButton from './ChangeColorButton';
-
 class App extends React.Component {
 
     constructor() {
         super();
         this.state = {
             bg: 'palegreen',
-            in: 'AAA'
+            bgIn: '',
+            size: 600,
+            sizeIn: '',
+            shapeSquare: false
             };
     }
 
-    changeColorP = () => {
+    inChangeColor = (e) => {
         this.setState({
-            bg: 'palegreen',
+            bgIn: e.target.value,
         });
     }
-
-    changeColorO = () => {
-        this.setState({
-            bg: 'orangered',
-        });
-    }
-
-    changeColorG = () => {
-        this.setState({
-            bg: 'greenyellow',
-        });
-    }
-
-    changeColor = (color) => {
-        this.setState({
-            bg: color,
-        });
-    }
-
-    inChange = (e) => {
-        this.setState({
-            in: e.target.value,
-        });
-    }
-
     doColor = () => {
-        this.setState(state => ({bg: state.in}));
+        this.setState(state => ({bg: state.bgIn}));
+    }
+    inChangeSize = (e) => {
+        this.setState({
+            sizeIn: e.target.value,
+        });
+    }
+    doSize = () => {
+        this.setState(state => ({size: state.sizeIn}));
+    }
+
+    inChangeShape = () => {
+        //good
+        this.setState(state => ({shapeSquare: (!state.shapeSquare)}));
+
+        //wrong
+        // this.setState({
+        //     shapeSquare: (!this.state.shapeSquare),
+        // });
     }
 
 
     render() {
         return (
-            <div className="circle" style={{backgroundColor: this.state.bg}}>
-                <ChangeColorButton regNumber={23} color={'palegreen'} clickToChangeColor={this.changeColor}></ChangeColorButton>
-                <ChangeColorButton regNumber={53} color={'orangered'} clickToChangeColor={this.changeColor}></ChangeColorButton>
-                <ChangeColorButton regNumber={77} color={'greenyellow'} clickToChangeColor={this.changeColor}></ChangeColorButton>
-                <input type="text" value={this.state.in} onChange={this.inChange}/>
-                <button className="input-button" onClick={this.doColor}>Change Color</button>
+            <div className="circle" style={{
+                backgroundColor: this.state.bg,
+                width: this.state.size+'px',
+                height: this.state.size+'px',
+                borderRadius: this.state.shapeSquare ? '0' : '50%'
+                }}>
+                <div>
+                    <input type="text" value={this.state.bgIn} onChange={this.inChangeColor}/>
+                    <button className="input-button" onClick={this.doColor}>Change Color</button>
+                </div>
+                <div>
+                    <input type="text" value={this.state.sizeIn} onChange={this.inChangeSize}/>
+                    <button className="input-button" onClick={this.doSize}>Change Size</button>
+                </div>
+                <div>
+                    <input type="checkbox" onChange={this.inChangeShape} checked={this.state.shapeSquare}/>
+                    <label>Change Shape</label>
+                </div>
             </div>
         );
     }

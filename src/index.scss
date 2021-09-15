@@ -116,16 +116,14 @@ code {
     align-items: center;
     position: relative;
     input {
-        position: absolute;
-        top: 40px;
         font-size: 20px;
         outline: none;
         border: none;
         text-align: center;
+        margin: 5px;
     }
     .input-button {
-        position: absolute;
-        top: 90px;
+        margin: 5px;
     }
 }
 
