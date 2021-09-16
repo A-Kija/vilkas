@@ -138,6 +138,13 @@ button {
     cursor: pointer;
     position: relative;
     margin: 5px;
+    &.input-button-small {
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(205, 63, 110);
+        padding: 8px;
+    }
     .reg {
         position: absolute;
         bottom: 5px;
@@ -147,12 +154,19 @@ button {
 }
 
 .small-circle {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    flex-direction: column;
     margin: 5px;
+    span {
+        font-size: 27px;
+        letter-spacing: 2px;
+        color: black;
+        padding: 16px;
+    }
 }
