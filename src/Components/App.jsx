@@ -1,67 +1,52 @@
 import React from 'react';
-
+import SmallAnimal from './SmallAnimal';
 class App extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            bg: 'palegreen',
-            bgIn: '',
-            size: 600,
-            sizeIn: '',
-            shapeSquare: false
+            animals: [],
+            cowInput: ''
             };
     }
 
-    inChangeColor = (e) => {
+    addAnimal = (a) => {
+        const animal = {color: this.state.cowInput, animal: a};
+        const animals = this.state.animals.slice();
+        animals.push(animal);
         this.setState({
-            bgIn: e.target.value,
-        });
-    }
-    doColor = () => {
-        this.setState(state => ({bg: state.bgIn}));
-    }
-    inChangeSize = (e) => {
-        this.setState({
-            sizeIn: e.target.value,
-        });
-    }
-    doSize = () => {
-        this.setState(state => ({size: state.sizeIn}));
+            animals: animals
+        })
+        localStorage.setItem('allAnimals', JSON.stringify(animals));
     }
 
-    inChangeShape = () => {
-        //good
-        this.setState(state => ({shapeSquare: (!state.shapeSquare)}));
+    cowInputHandler = (e) => {
+        this.setState({
+            cowInput: e.target.value,
+        });
+    }
 
-        //wrong
-        // this.setState({
-        //     shapeSquare: (!this.state.shapeSquare),
-        // });
+    componentDidMount() {
+        const animals = JSON.parse(localStorage.getItem('allAnimals'));
+        if (null === animals) {
+            return;
+        }
+        this.setState({
+            animals: animals
+        })
     }
 
 
     render() {
         return (
-            <div className="circle" style={{
-                backgroundColor: this.state.bg,
-                width: this.state.size+'px',
-                height: this.state.size+'px',
-                borderRadius: this.state.shapeSquare ? '0' : '50%'
-                }}>
+            <>
+                {this.state.animals.map((b, i) => <SmallAnimal key={i} color={b.color} animal={b.animal} />)}
                 <div>
-                    <input type="text" value={this.state.bgIn} onChange={this.inChangeColor}/>
-                    <button className="input-button" onClick={this.doColor}>Change Color</button>
+                    <input type="text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
+                    <button className="input-button" onClick={()=>this.addAnimal('cow')}>Add Cow</button>
+                    <button className="input-button" onClick={()=>this.addAnimal('sheep')}>Add Sheep</button>
                 </div>
-                <div>
-                    <input type="text" value={this.state.sizeIn} onChange={this.inChangeSize}/>
-                    <button className="input-button" onClick={this.doSize}>Change Size</button>
-                </div>
-                <div>
-                    <input type="checkbox" onChange={this.inChangeShape} checked={this.state.shapeSquare}/>
-                    <label>Change Shape</label>
-                </div>
-            </div>
+            </>
         );
     }
 }

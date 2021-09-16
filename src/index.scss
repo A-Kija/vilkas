@@ -137,10 +137,22 @@ button {
     border-radius: 10px;
     cursor: pointer;
     position: relative;
+    margin: 5px;
     .reg {
         position: absolute;
         bottom: 5px;
         right: 5px;
         font-size: 10px;
     }
+}
+
+.small-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5px;
 }
