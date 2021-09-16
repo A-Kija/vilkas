@@ -154,8 +154,8 @@ button {
 }
 
 .small-circle {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -168,5 +168,13 @@ button {
         letter-spacing: 2px;
         color: black;
         padding: 16px;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+            width: 100px;
+        }
     }
 }
