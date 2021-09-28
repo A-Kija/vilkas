@@ -3,12 +3,13 @@ import {
     Route,
     Link,
     useRouteMatch,
-    useParams
 } from "react-router-dom";
 import Topic from "./Topic";
 
 export default function Topics() {
     const { path, url } = useRouteMatch();
+
+    console.log(path);
   
     return (
       <div>

@@ -16,19 +16,18 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/topics">Topics</Link>
+              <Link to="/topics/222/999">Topics</Link>
             </li>
           </ul>
-  
 
-  
           <Switch>
             <Route exact path="/">
                 <div>
                     <h2>Home</h2>
                 </div>
             </Route>
-            <Route path="/topics">
+            
+            <Route path="/topics/222/999">
               <Topics />
             </Route>
           </Switch>
