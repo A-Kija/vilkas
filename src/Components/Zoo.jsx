@@ -8,13 +8,12 @@ function Zoo() {
 
 const [animals, setAnimals] = useState(list);
 
-
     return (
         <div className="zoo">
             <h1> Welcome to the ZOO </h1>
             <Switch>
                 <Route path={'/:id'}>
-                    <Animal></Animal>
+                    <Animal animals={animals}></Animal>
                 </Route>
                 <Route path={'/'}>
                     <ul>

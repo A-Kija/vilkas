@@ -6,7 +6,9 @@ function Todo(props) {
 const {todoId} = useParams();
 
     if (props.todos.length === 0) {
-        return null;
+        return (
+            <h1>Todo loadig...</h1>
+        )
     }
 
     return (
