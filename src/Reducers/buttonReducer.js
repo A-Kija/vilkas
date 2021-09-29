@@ -11,14 +11,14 @@ function buttonReducer(state, action) {
             } else {
                 newState.click = 'red';
             }
-
+            newState.fancyClick = '#' + Math.floor(Math.random() * 16777215).toString(16);
             break;
         case CHANGE_FANCY_COLOR:
             newState.fancyClick = action.payload;
             break;
     }
 
-    console.log(action);
+    // console.log(action);
 
     return newState;
 }
