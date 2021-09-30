@@ -1,25 +1,14 @@
 import React, {useState} from 'react';
-function SmallAnimal(props) {
+function SmallAnimal({open, farmNamber, farm1, color, animal, id}) {
 
-    const [editInput, setEditInput] = useState('');
-
-    const editInputHandler = (e) => {
-        setEditInput(e.target.value);
-    }
-
-    if ((props.farmNamber === 1 && props.farm1) || (props.farmNamber === 2 && !props.farm1)) {
+    if ((farmNamber === 1 && farm1) || (farmNamber === 2 && !farm1)) {
     return (
         <div className="small-circle" style={{
-            backgroundColor: props.color,
-            borderRadius: props.animal == 'cow' ? '50%' : '5px'
+            backgroundColor: color,
+            borderRadius: animal === 'cow' ? '50%' : '5px'
         }}>
-            <span>{props.color}</span>
-            <button className="input-button-small" onClick={()=>props.delete(props.id)}>Go Home</button>
-            <button className="input-button-small" onClick={()=>props.change(props.id)}>Change Farm</button>
-            <div className="center">
-                <input type="text" value={editInput} onChange={editInputHandler}/>
-                <button className="input-button-small" onClick={()=>props.edit(props.id, editInput)}>Edit Color</button>
-            </div>
+            <span>{color}</span>
+            <button className="input-button-small" onClick={()=>open(id)}>Open Edit</button>
         </div>);
     }
     else {
