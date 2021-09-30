@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 function SmallAnimal({open, farmNamber, farm1, color, animal, id}) {
 
     if ((farmNamber === 1 && farm1) || (farmNamber === 2 && !farm1)) {
