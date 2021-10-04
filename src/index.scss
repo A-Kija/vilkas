@@ -318,3 +318,23 @@ a {
     align-items: center;
     flex-direction: column;
 }
+
+.field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    height: 200px;
+    width: 525px;
+    border: 4px dashed greenyellow;
+    padding: 10px;
+    span {
+        font-size: 50px;
+        font-weight: bold;
+        color: chartreuse;
+        padding: 5px;
+        border: 1px solid chartreuse;
+        margin: 5px;
+    }
+}
