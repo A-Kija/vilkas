@@ -1,8 +1,9 @@
+import { useContext } from "react";
+import { ThemeContext } from "./App";
 
-function Letter({letter, th}) {
-    {console.log(th)}
+function Letter({letter}) {
+    const th = useContext(ThemeContext);
     return (
-        
         <span style={th}>{letter}</span>
     )
 }

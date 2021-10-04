@@ -1,9 +1,9 @@
 import Letter from './Letter';
 
-function Field({letters, th}) {
+function Field({letters}) {
     return (<>
         <div className="field">
-            {letters.map((l, i) => <Letter key={i} letter={l} th={th}/>)}
+            {letters.map((l, i) => <Letter key={i} letter={l}/>)}
         </div>
     </>);
     }

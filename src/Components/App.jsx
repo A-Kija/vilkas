@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import Field from './Field';
 
 const letters = ['L', 'a', 'b', 'a', 's'];
+
+export const ThemeContext = createContext({
+    color: 'chartreuse',
+    border: '1px solid chartreuse'
+});
 
 function App() {
 
@@ -34,10 +39,12 @@ function App() {
     }
 
     return (<>
-        <Field letters={letters} th={style}></Field>
+        <ThemeContext.Provider value={style}>
+        <Field letters={letters}></Field>
         <button onClick={()=>changeTheme(1)}>Theme 1</button>
         <button onClick={()=>changeTheme(2)}>Theme 2</button>
         <button onClick={()=>changeTheme(3)}>Theme 3</button>
+        </ThemeContext.Provider>
     </>);
     }
     
