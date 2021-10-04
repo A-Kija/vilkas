@@ -1,7 +1,9 @@
 
-function Letter({letter}) {
+function Letter({letter, th}) {
+    {console.log(th)}
     return (
-        <span>{letter}</span>
+        
+        <span style={th}>{letter}</span>
     )
 }
 
