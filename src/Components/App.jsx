@@ -20,14 +20,14 @@ function App() {
         }
         else if (2 === t) {
             theme = {
-                color: 'firebric',
+                color: 'firebrick',
                 border: '1px solid chartreuse'
             }
         }
         else if (3 === t) {
             theme = {
                 color: 'chartreuse',
-                border: '1px solid firebric'
+                border: '1px solid firebrick'
             }
         }
         setStyle(theme);
