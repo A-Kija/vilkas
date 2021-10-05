@@ -338,3 +338,57 @@ a {
         margin: 5px;
     }
 }
+
+.crazy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border: 4px dashed greenyellow;
+    padding: 10px;
+    margin: 60px;
+    border-radius: 50%;
+}
+
+.posts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .post {
+        max-width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 10px;
+        padding: 5px;
+        border: 1px solid skyblue;
+        border-radius: 4px;
+        .id {
+            margin: 5px 0 16px 0;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            background-color: skyblue;
+            border-radius: 50%;
+            color: black;
+        }
+        .title {
+            padding: 5px 5px 5px 0;
+            letter-spacing: 0.5;
+            font-size: 16px;
+            color: skyblue;
+        }
+        .body {
+            margin: 12px;
+            font-size: 10px;
+        }
+    }
+}

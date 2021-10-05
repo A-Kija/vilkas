@@ -1,43 +1,27 @@
-import { useState } from 'react';
-import Field from './Field';
-import { ThemeContext, ThemeSelect } from "../Providers";
-
-const letters = ['L', 'a', 'b', 'a', 's'];
-
-const theme = [
-    {
-        color: 'chartreuse',
-        border: '1px solid chartreuse'
-    },
-    {
-        color: 'firebrick',
-        border: '1px solid chartreuse'
-    },
-    {
-        color: 'chartreuse',
-        border: '1px solid firebrick'
-    }
-];
-
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import Post from './Post';
 
 function App() {
 
-    const [style, setStyle] = useState(0);
-    
-    const changeTheme = t => {
-        setStyle(t);
-    }
+    const [posts, setPosts] = useState([]);
 
-    return (<>
-        <ThemeContext.Provider value={theme}>
-        <ThemeSelect.Provider value={style}>
-        <Field letters={letters}></Field>
-        <button onClick={()=>changeTheme(0)}>Theme 1</button>
-        <button onClick={()=>changeTheme(1)}>Theme 2</button>
-        <button onClick={()=>changeTheme(2)}>Theme 3</button>
-        </ThemeSelect.Provider>
-        </ThemeContext.Provider>
-    </>);
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function (response) {
+            console.log(response.data);
+            setPosts(response.data);
+        })
+    }, []);
+
+
+    
+    return (
+    <div>
+        <div className="posts-container">
+            {posts.map((post)=>(<Post key={post.id} data={post}/>))}
+        </div>
+    </div>);
     }
     
 export default App;
