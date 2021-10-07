@@ -411,7 +411,7 @@ a {
 .new-post-container {
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     margin: 10px;
@@ -421,12 +421,15 @@ a {
     .new-post {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         padding: 10px;
         width: 100%;
         box-sizing: border-box;
         div {
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
         .add {
             font-size: 14px;
@@ -443,6 +446,7 @@ a {
     }
     textarea {
         width: 100%;
+        max-width: 500px;
         height: 100px;
         margin-top: 5px;
         outline: none;
