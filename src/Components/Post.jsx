@@ -9,6 +9,7 @@ function Post({data, crud}) {
                 <h3>Edit</h3>
 
                 <button className="del" onClick={()=>crud.delete(data.id)}>Delete</button>
+                <button className="del" onClick={()=>crud.open(data)}>Edit</button>
             </div>
         </div>
     );

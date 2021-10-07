@@ -2,15 +2,11 @@ import { useState } from "react";
 
 function NewPost({add}) {
 
-    const [userId, setUserId] = useState('');
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
     const controller = (e, i) => {
-        if ('userId' === i) {
-            setUserId(e.target.value);
-        }
-        else if ('title' === i) {
+        if ('title' === i) {
             setTitle(e.target.value);
         }
         else if ('body' === i) {
@@ -20,17 +16,18 @@ function NewPost({add}) {
 
     const doAdd = () => {
         const data = {
-            userId: userId,
             title: title,
             body: body
         }
+        setTitle('');
+        setBody('')
         add(data);
+
     }
 
     return (
         <>
         <div className="new-post">
-            <div><span>User Id:</span><input type="text" onChange={(e)=>controller(e,'userId')} value={userId} /></div>
             <div><span>Title:</span><input type="text" onChange={(e)=>controller(e,'title')} value={title} /></div>
         </div>
         <div className="new-post">
