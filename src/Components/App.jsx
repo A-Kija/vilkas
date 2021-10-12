@@ -63,6 +63,7 @@ function App() {
     return (
     <div>
         
+        
         <div className="new-post-container">
             <NewPost add={doAdd} />
         </div>
